@@ -1,102 +1,131 @@
-# Experiment Log
+# 实验记录：Jev 大战 Polymarket
 
-## Project
+本记录依据仓库现有 JSON summary 与对应 JSONL 整理，核对日期为 2026-09-19。下表直接保留 summary 的数值精度；百分比是相应比例的换算。runId 使用 UTC，不能把文件名时间直接当作北京时间。
 
-`JevVSPolymarket`（Jev 大战 Polymarket）是一个娱乐性质的历史预测实验。目标不是交易，而是观察 Jev 的结构化概率判断和预测市场基线之间的差异。
+这些是历史回顾实验。最终结果和价格不作为单独字段发给 Jev，但当前市场描述与模型知识可能包含历史信息；不能称为已排除泄漏的前瞻验证。运行方法和指标定义见 [README](../README.md)。
 
-## Method contract
+## 1. 单次批量已经跑通
 
-每条记录包含一个已经结算的二元体育或电竞市场。发送给 Jev 的状态包含：
+来源：[首次成功 summary](../data/jev-batch-2026-09-18T16-54-41-874Z-summary.json) · [JSONL](../data/jev-batch-2026-09-18T16-54-41-874Z.jsonl)。
 
-- 市场问题；
-- 结算规则；
-- 两个结果选项；
-- 实验背景；
-- 市场截止时间。
+| 字段 | 原始结果 |
+| --- | ---: |
+| selectedCount | 100 |
+| successfulCount | 100 |
+| errorCount | 0 |
+| accuracy | 0.7 |
+| meanBrier | 0.4328640000000003 |
+| meanProbabilityOfActual | 0.6424 |
+| highConfidenceWrong | 7 |
+| uniformBaselineBrier | 0.5 |
 
-最终结果、终局价格、评论和赛后信息不发送给 Jev。最终结果只在评分阶段使用。
+该次验证了市场发现、Jev 判断、明细保存与评分流程。summary 尚无市场基线指标，因此只支持与均匀分布的 Brier 比较，不能据此声称打败市场。
 
-市场基线使用事件截止前一小时的 CLOB 历史价格。Polymarket 的部分历史体育市场把 `startDate` 和 `endDate` 写成相同时间，脚本会使用事件前默认窗口修正这个元数据问题，并保留 baseline mode。
+更早的 [12-27 批次](../data/jev-batch-2026-09-18T12-27-09-602Z-summary.json) 和 [16-53 批次](../data/jev-batch-2026-09-18T16-53-33-819Z-summary.json) 均为 successfulCount = 0、errorCount = 100、accuracy = null。其 meanBrier = 0 是无成功记录时的汇总值，不纳入模型表现结论；summary 本身不足以确定凭据失败的具体原因。
 
-## Completed runs
+## 2. 市场基线修复与复测
 
-### Initial batch
+| 批次（UTC runId） | 成功／失败 | Jev accuracy | Jev meanBrier | 可比较市场数 | 截止点回退数 |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 2026-09-18T23-44-18-987Z | 100 / 0 | 0.7 | 0.4330219999999999 | 69 | 未记录 |
+| 2026-09-18T23-57-25-578Z | 100 / 0 | 0.68 | 0.43392199999999986 | 69 | 0 |
+| 2026-09-19T00-04-21-338Z | 100 / 0 | 0.69 | 0.43468599999999996 | 98 | 0 |
 
-早期批量运行验证了端到端流程：Gamma 市场发现、Jev Choice 判断、JSONL 保存和最终结果评分。期间曾出现 API key 缺失/无效导致的 401 运行失败；这些失败记录不作为模型结果使用。
+来源：
 
-### Single batch after baseline repair
+- [23-44 summary](../data/jev-batch-2026-09-18T23-44-18-987Z-summary.json) · [JSONL](../data/jev-batch-2026-09-18T23-44-18-987Z.jsonl)
+- [23-57 summary](../data/jev-batch-2026-09-18T23-57-25-578Z-summary.json) · [JSONL](../data/jev-batch-2026-09-18T23-57-25-578Z.jsonl)
+- [00-04 summary](../data/jev-batch-2026-09-19T00-04-21-338Z-summary.json) · [JSONL](../data/jev-batch-2026-09-19T00-04-21-338Z.jsonl)
 
-结果文件：
+前两份 JSONL 各有 29 条 Invalid historical market time range 和 2 条 No pre-event price history。00-04 批次只剩 2 条 No pre-event price history，可比较市场数从 69 增至 98。
 
-- `data/jev-batch-2026-09-19T00-04-21-338Z-summary.json`
-- `data/jev-batch-2026-09-19T00-04-21-338Z.jsonl`
+当前代码在 startDate 无效或不早于 endDate 时，使用 endDate 前 7 天作为查询起点，避免直接拒绝这一时间范围。随后仍优先取 endDate 前 3600 秒的历史点；无可用点才尝试截至 endDate 并标记 event_end_fallback。修复后的回退计数为 0，说明查询起点修正不能等同于截止点回退。现有 JSONL 证明错误分布与覆盖率变化，但没有保存完整 Gamma 时间元数据，不能仅凭这些文件断言所有原始错误都是起止日期相等造成的。
 
-关键结果：
+修复后的 00-04 批次精确比较：
 
-- 100/100 次 Jev 调用成功；
-- Jev 准确率 69%；
-- Jev 平均 Brier 0.4347；
-- 98/100 条有可比较的市场基线；
-- 市场准确率 71.43%；
-- 市场平均 Brier 0.4234；
-- 剩余 2 条缺少可用的 Formula 1 事件前价格历史。
+| 字段 | 原始结果 |
+| --- | ---: |
+| marketAccuracy | 0.7142857142857143 |
+| marketMeanBrier | 0.4234433673469389 |
+| jevMeanBrierOnMarketComparable | 0.4418326530612244 |
+| jevBrierWinsAgainstMarket | 62 |
+| meanProbabilityOfActual | 0.6428999999999999 |
+| highConfidenceWrong | 10 |
+| preEventLeadSeconds | 3600 |
 
-### Fixed-sample repeat test
+Jev 在 98 个可比较市场中有 62 个单题 Brier 更低，但同子集的平均 Brier 更高。市场覆盖范围从 69 变成 98 后，不能把不同子集的分数变化当作模型能力的因果变化；不同批次也重新调用了 Jev。
 
-结果文件：
+## 3. 100 个固定市场，重复 5 次
 
-- `data/jev-batch-2026-09-19T00-24-38-236Z-summary.json`
-- `data/jev-batch-2026-09-19T00-24-38-236Z.jsonl`
+来源：[重复测试 summary](../data/jev-batch-2026-09-19T00-24-38-236Z-summary.json) · [JSONL](../data/jev-batch-2026-09-19T00-24-38-236Z.jsonl)。
 
-配置为同一批 100 个市场重复 5 次，共 500 次 Jev 调用。市场基线只读取一次并在重复测试中复用。
+selectedCount = 100，repeatCount = 5，concurrency = 5，sportsTagId = 100639，minVolume = 50，preEventLeadSeconds = 3600。JSONL 共 500 条，100 个不同 slug；每轮各 100 条。该批 JSONL 返回的模型为 jev-1.13.0。市场选择和基线在本次进程内复用，500 次判断不是 500 个独立样本。
 
-summary 中的准确结果：
+### 每轮结果
 
-| Metric | Jev | Market baseline |
-| --- | ---: | ---: |
-| Mean accuracy | 70.4% | 71.43% |
-| Mean Brier | 0.4362 | 0.4234 |
-| Brier standard deviation across repeats | 0.0023 | not applicable |
-| Comparable baseline markets | 98 | 98 |
+| 轮次 | 成功／失败 | accuracy | meanBrier | meanProbabilityOfActual | highConfidenceWrong | Brier 胜市场次数 |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| 1 | 100 / 0 | 0.7 | 0.43680400000000014 | 0.6404000000000003 | 9 | 63 |
+| 2 | 100 / 0 | 0.71 | 0.43581999999999993 | 0.6422 | 9 | 62 |
+| 3 | 100 / 0 | 0.71 | 0.4401260000000001 | 0.6403000000000002 | 9 | 62 |
+| 4 | 100 / 0 | 0.7 | 0.433128 | 0.6429999999999998 | 9 | 62 |
+| 5 | 100 / 0 | 0.7 | 0.4349 | 0.6417999999999998 | 8 | 62 |
 
-逐题分析 JSONL 得到：
+summary 轮号从 1 开始，JSONL 的 repeat 从 0 开始。每轮有 98 个可比较市场、0 次截止点回退；每轮市场 accuracy 为 0.7142857142857143，meanBrier 为 0.4234433673469389。
 
-- 68 个问题 5 次全部判断正确；
-- 28 个问题 5 次全部判断错误；
-- 4 个问题出现判断摇摆；
-- 平均逐题选择一致性约 99%。
+### 总体与轮间聚合
 
-这说明主要问题不是 Jev 的随机输出，而是它对部分题目的稳定错误先验和过度自信。
+| 位置／字段 | 原始结果 |
+| --- | ---: |
+| 顶层 successfulCount / errorCount | 500 / 0 |
+| 顶层 accuracy | 0.704 |
+| 顶层 meanBrier | 0.43615560000000014 |
+| 顶层 meanProbabilityOfActual | 0.6415400000000001 |
+| 顶层 highConfidenceWrong | 44 |
+| repeatAggregate.accuracyMean | 0.7040000000000001 |
+| repeatAggregate.accuracyStdDev | 0.004898979485566361 |
+| repeatAggregate.meanBrierMean | 0.43615560000000003 |
+| repeatAggregate.meanBrierStdDev | 0.002325511522224764 |
+| repeatAggregate.meanProbabilityOfActualMean | 0.6415400000000001 |
+| repeatAggregate.highConfidenceWrongMean | 8.8 |
 
-## Baseline repair note
+准确率轮间总体标准差约为 0.49 个百分点。顶层均值与轮均值的末位差异来自浮点求和顺序，以上保留文件原值。这里的标准差描述 5 次重复的波动，不是置信区间。
 
-原始历史基线逻辑把 `eventEnd <= startDate` 视为无效。对不少已结算体育市场，API 返回的 `startDate` 和 `endDate` 相同，但 CLOB 仍然存在事件前历史价格。修复后，脚本在声明的起始时间无效时使用事件结束前 7 天窗口，并优先取事件前一小时的最后价格。
+### 同一子集上的市场比较
 
-修复后的单次运行从 69/100 条市场基线提升到 98/100 条。剩余缺失记录属于没有可用 CLOB 历史点，而不是时间范围解析错误。
+| 顶层字段 | 原始结果 |
+| --- | ---: |
+| uniqueMarketBaselineCount | 98 |
+| marketBaselineCount | 98 |
+| marketBaselineFallbackCount | 0 |
+| marketAccuracy | 0.7142857142857143 |
+| marketMeanBrier | 0.423443367346938 |
+| jevMeanBrierOnMarketComparable | 0.4435587755102044 |
+| jevBrierWinsAgainstMarket | 311 |
 
-## Next experiment
+98 个独立市场 × 5 次形成 490 次可比较判断；2 个缺基线市场重复后对应 JSONL 中 10 条 No pre-event price history。311 次胜出以 490 次判断为分母，不是 100 或 500。
 
-背景信息消融测试已实现但尚未在本仓库记录结果。运行：
+同子集平均 Brier 显示市场优于 Jev。70.4% 是 Jev 全部 500 次判断的准确率，不能不说明分母就与 98 个市场的市场准确率直接并列比较。市场概率恰好 0.5 时也被代码计为正确，与 Jev 的单选口径有差异。
 
-```powershell
-$env:JEV_BATCH_COUNT = "100"
-$env:JEV_BATCH_REPEATS = "1"
-$env:JEV_BATCH_BACKGROUND_MODES = "bare,generic,sports_prior,calibrated"
-$env:JEV_BATCH_CONCURRENCY = "5"
-pnpm batch:historical
-```
+这批样本的轮间汇总波动较小，但不能据此判断错误来自“稳定先验”，也不能把选择一致性等同于概率校准或泛化能力。该旧 summary 的 byFamilyScope 为 first_repeat_only，仅覆盖第一轮；标题启发式分组不代表严格的体育分类。
 
-这个实验需要比较 `ablationSummaries` 中四种模式的：
+## 4. 背景消融：已实现，尚无结果
 
-1. 准确率；
-2. 平均 Brier；
-3. 高置信度错误数；
-4. Jev 相对于同一市场基线的 Brier 差异。
+当前代码支持 bare、generic、sports_prior、calibrated 四种背景，运行命令见 [README](../README.md)。已有 summary 中尚无这四种模式的对照结果，因此不报告消融分数或胜出模式。
 
-如果背景模式之间差异明显，再用固定样本重复运行区分真实的背景效果和 Jev 输出随机性。
+后续应在同一批市场、同一基线下比较各模式的 accuracy、meanBrier、highConfidenceWrong 和 jevMeanBrierOnMarketComparable，并通过重复运行观察波动。这里只改变背景表述，不加入真实赛前事实。
 
-## Interpretation boundary
+## 数据定位与复核
 
-当前样本是从已结算的体育/电竞二元市场中筛选出来的探索性样本，不代表 Jev 的普遍能力。`byFamily` 使用标题启发式分组，只适合快速观察，不应视为严格的体育项目分层评测。
+历史 summary 的 resultsPath 仍指向原目录 F:\Workspace\JevPlayground\data。为避免目录迁移影响，本记录使用指向当前仓库 data 的相对链接；没有改写原始数据。
 
-任何高置信度错误都应保留在结果中；不能只报告预测正确的市场。
+可在当前仓库的 PowerShell 中直接查看记录，不调用 API：
+
+~~~powershell
+Set-Location 'F:\Workspace\JevVSPolymarket'
+$summary = Get-Content -Raw '.\data\jev-batch-2026-09-19T00-24-38-236Z-summary.json' | ConvertFrom-Json
+$summary.repeatSummaries | Format-Table repeat, successfulCount, accuracy, meanBrier, highConfidenceWrong
+$summary.repeatAggregate | Format-List
+~~~
+
+本次文档整理没有重新运行付费实验；结论仅绑定上面列出的已有文件，不代表实时市场表现。
