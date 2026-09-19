@@ -1,0 +1,473 @@
+{
+  "runId": "2026-09-19T00-24-38-236Z",
+  "targetCount": 100,
+  "selectedCount": 100,
+  "repeatCount": 5,
+  "successfulCount": 500,
+  "errorCount": 0,
+  "accuracy": 0.704,
+  "meanBrier": 0.43615560000000014,
+  "meanProbabilityOfActual": 0.6415400000000001,
+  "highConfidenceWrong": 44,
+  "marketBaselineCount": 98,
+  "marketBaselineFallbackCount": 0,
+  "marketAccuracy": 0.7142857142857143,
+  "marketMeanBrier": 0.423443367346938,
+  "jevMeanBrierOnMarketComparable": 0.4435587755102044,
+  "jevBrierWinsAgainstMarket": 311,
+  "concurrency": 5,
+  "sportsTagId": "100639",
+  "minVolume": 50,
+  "uniformBaselineBrier": 0.5,
+  "uniqueMarketBaselineCount": 98,
+  "preEventLeadSeconds": 3600,
+  "byFamily": {
+    " Will": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.037700000000000004
+    },
+    "49ers vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.0125
+    },
+    "Bears vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.0932
+    },
+    "Bengals vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 1.5146
+    },
+    "Bills vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.009799999999999993
+    },
+    "Broncos vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.6772999999999999
+    },
+    "Browns vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.9769
+    },
+    "Buccaneers vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.7058
+    },
+    "Cardinals vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.2009
+    },
+    "Chargers vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.628
+    },
+    "Chiefs vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.058399999999999994
+    },
+    "Colts vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.7013
+    },
+    "Commanders vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.06099999999999999
+    },
+    "Cowboys vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 1.4057
+    },
+    "Dolphins vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.49859999999999993
+    },
+    "Eagles vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.877
+    },
+    "Falcons vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.5912999999999999
+    },
+    "Formula 1": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.08810000000000001
+    },
+    "Giants vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.7801
+    },
+    "Jaguars vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.7173
+    },
+    "Jets vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.1906
+    },
+    "Lions vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8528
+    },
+    "Packers vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.0629
+    },
+    "Panthers vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8232999999999999
+    },
+    "Patriots vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 0.9773000000000001
+    },
+    "Raiders vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 1.025
+    },
+    "Rams vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.2293
+    },
+    "Ravens vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8608
+    },
+    "Saints vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Seahawks vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.045000000000000005
+    },
+    "Steelers vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05120000000000001
+    },
+    "Texans vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.08819999999999997
+    },
+    "Titans vs.": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.4791999999999998
+    },
+    "Vikings vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.2738
+    },
+    "Will AFC": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.10579999999999999
+    },
+    "Will AZ": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.44179999999999997
+    },
+    "Will Anderlecht": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.2168
+    },
+    "Will Arsenal": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0050000000000000044
+    },
+    "Will Aston": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.6962
+    },
+    "Will Bodo": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.9602
+    },
+    "Will Bournemouth": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Brentford": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Brighton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.007200000000000007
+    },
+    "Will Chelsea": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.5618000000000001
+    },
+    "Will Crystal": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05120000000000001
+    },
+    "Will Dynamo": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.003200000000000003
+    },
+    "Will Everton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Will Ferencvaros": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05120000000000001
+    },
+    "Will Fulham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Galatasaray": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.3042
+    },
+    "Will Hoffenheim": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.18000000000000002
+    },
+    "Will IF": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.007200000000000007
+    },
+    "Will Ipswich": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.08819999999999997
+    },
+    "Will Lazio": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.9248000000000001
+    },
+    "Will Leicester": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.07219999999999999
+    },
+    "Will Liverpool": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.9521999999999998
+    },
+    "Will Ludogorets": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Will Manchester": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.3872
+    },
+    "Will Midtjylland": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0288
+    },
+    "Will Newcastle": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Nice": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.045000000000000005
+    },
+    "Will Nottingham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0050000000000000044
+    },
+    "Will PAOK": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.009799999999999993
+    },
+    "Will Porto": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.7688
+    },
+    "Will Real": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.1152
+    },
+    "Will Slavia": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.8712
+    },
+    "Will Southampton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Tottenham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.40499999999999997
+    },
+    "Will Twente": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will West": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0018000000000000017
+    },
+    "Will Wolverhampton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.016199999999999992
+    },
+    "Will the": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.07219999999999999
+    }
+  },
+  "byFamilyScope": "first_repeat_only",
+  "repeatSummaries": [
+    {
+      "repeat": 1,
+      "successfulCount": 100,
+      "errorCount": 0,
+      "accuracy": 0.7,
+      "meanBrier": 0.43680400000000014,
+      "meanProbabilityOfActual": 0.6404000000000003,
+      "highConfidenceWrong": 9,
+      "marketBaselineCount": 98,
+      "marketBaselineFallbackCount": 0,
+      "marketAccuracy": 0.7142857142857143,
+      "marketMeanBrier": 0.4234433673469389,
+      "jevMeanBrierOnMarketComparable": 0.44392040816326545,
+      "jevBrierWinsAgainstMarket": 63
+    },
+    {
+      "repeat": 2,
+      "successfulCount": 100,
+      "errorCount": 0,
+      "accuracy": 0.71,
+      "meanBrier": 0.43581999999999993,
+      "meanProbabilityOfActual": 0.6422,
+      "highConfidenceWrong": 9,
+      "marketBaselineCount": 98,
+      "marketBaselineFallbackCount": 0,
+      "marketAccuracy": 0.7142857142857143,
+      "marketMeanBrier": 0.4234433673469389,
+      "jevMeanBrierOnMarketComparable": 0.44353061224489787,
+      "jevBrierWinsAgainstMarket": 62
+    },
+    {
+      "repeat": 3,
+      "successfulCount": 100,
+      "errorCount": 0,
+      "accuracy": 0.71,
+      "meanBrier": 0.4401260000000001,
+      "meanProbabilityOfActual": 0.6403000000000002,
+      "highConfidenceWrong": 9,
+      "marketBaselineCount": 98,
+      "marketBaselineFallbackCount": 0,
+      "marketAccuracy": 0.7142857142857143,
+      "marketMeanBrier": 0.4234433673469389,
+      "jevMeanBrierOnMarketComparable": 0.44737346938775513,
+      "jevBrierWinsAgainstMarket": 62
+    },
+    {
+      "repeat": 4,
+      "successfulCount": 100,
+      "errorCount": 0,
+      "accuracy": 0.7,
+      "meanBrier": 0.433128,
+      "meanProbabilityOfActual": 0.6429999999999998,
+      "highConfidenceWrong": 9,
+      "marketBaselineCount": 98,
+      "marketBaselineFallbackCount": 0,
+      "marketAccuracy": 0.7142857142857143,
+      "marketMeanBrier": 0.4234433673469389,
+      "jevMeanBrierOnMarketComparable": 0.44077142857142865,
+      "jevBrierWinsAgainstMarket": 62
+    },
+    {
+      "repeat": 5,
+      "successfulCount": 100,
+      "errorCount": 0,
+      "accuracy": 0.7,
+      "meanBrier": 0.4349,
+      "meanProbabilityOfActual": 0.6417999999999998,
+      "highConfidenceWrong": 8,
+      "marketBaselineCount": 98,
+      "marketBaselineFallbackCount": 0,
+      "marketAccuracy": 0.7142857142857143,
+      "marketMeanBrier": 0.4234433673469389,
+      "jevMeanBrierOnMarketComparable": 0.4421979591836735,
+      "jevBrierWinsAgainstMarket": 62
+    }
+  ],
+  "repeatAggregate": {
+    "accuracyMean": 0.7040000000000001,
+    "accuracyStdDev": 0.004898979485566361,
+    "meanBrierMean": 0.43615560000000003,
+    "meanBrierStdDev": 0.002325511522224764,
+    "meanProbabilityOfActualMean": 0.6415400000000001,
+    "highConfidenceWrongMean": 8.8
+  },
+  "resultsPath": "F:\\Workspace\\JevPlayground\\data\\jev-batch-2026-09-19T00-24-38-236Z.jsonl"
+}

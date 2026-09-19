@@ -1,0 +1,385 @@
+{
+  "runId": "2026-09-19T00-04-21-338Z",
+  "targetCount": 100,
+  "selectedCount": 100,
+  "successfulCount": 100,
+  "errorCount": 0,
+  "concurrency": 5,
+  "sportsTagId": "100639",
+  "minVolume": 50,
+  "accuracy": 0.69,
+  "meanBrier": 0.43468599999999996,
+  "uniformBaselineBrier": 0.5,
+  "meanProbabilityOfActual": 0.6428999999999999,
+  "highConfidenceWrong": 10,
+  "marketBaselineCount": 98,
+  "marketBaselineFallbackCount": 0,
+  "marketAccuracy": 0.7142857142857143,
+  "marketMeanBrier": 0.4234433673469389,
+  "jevMeanBrierOnMarketComparable": 0.4418326530612244,
+  "jevBrierWinsAgainstMarket": 62,
+  "preEventLeadSeconds": 3600,
+  "byFamily": {
+    " Will": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.035300000000000005
+    },
+    "49ers vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.014600000000000002
+    },
+    "Bears vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.10970000000000002
+    },
+    "Bengals vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 1.5146
+    },
+    "Bills vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.01
+    },
+    "Broncos vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.6994
+    },
+    "Browns vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.9244999999999999
+    },
+    "Buccaneers vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.7420999999999999
+    },
+    "Cardinals vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.1994
+    },
+    "Chargers vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.6786000000000001
+    },
+    "Chiefs vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.04809999999999999
+    },
+    "Colts vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.6786000000000001
+    },
+    "Commanders vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.0689
+    },
+    "Cowboys vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 1.4733
+    },
+    "Dolphins vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.5353
+    },
+    "Eagles vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8793
+    },
+    "Falcons vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.5408000000000001
+    },
+    "Formula 1": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.08449999999999999
+    },
+    "Giants vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 0.8077
+    },
+    "Jaguars vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.6617
+    },
+    "Jets vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.173
+    },
+    "Lions vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8513000000000001
+    },
+    "Packers vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.0706
+    },
+    "Panthers vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 0.8377
+    },
+    "Patriots vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 0.9469000000000001
+    },
+    "Raiders vs.": {
+      "count": 2,
+      "accuracy": 0,
+      "meanBrier": 0.964
+    },
+    "Rams vs.": {
+      "count": 2,
+      "accuracy": 1,
+      "meanBrier": 0.18730000000000002
+    },
+    "Ravens vs.": {
+      "count": 2,
+      "accuracy": 0.5,
+      "meanBrier": 0.8793
+    },
+    "Saints vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Seahawks vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05780000000000002
+    },
+    "Steelers vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05120000000000001
+    },
+    "Texans vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05120000000000001
+    },
+    "Titans vs.": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.4791999999999998
+    },
+    "Vikings vs.": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.23120000000000002
+    },
+    "Will AFC": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0968
+    },
+    "Will AZ": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.5
+    },
+    "Will Anderlecht": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.1552
+    },
+    "Will Arsenal": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.007200000000000007
+    },
+    "Will Aston": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.6962
+    },
+    "Will Bodo": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 1.9602
+    },
+    "Will Bournemouth": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0002000000000000002
+    },
+    "Will Brentford": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Brighton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0050000000000000044
+    },
+    "Will Chelsea": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.4608
+    },
+    "Will Crystal": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05780000000000002
+    },
+    "Will Dynamo": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.003200000000000003
+    },
+    "Will Everton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Will Ferencvaros": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.045000000000000005
+    },
+    "Will Fulham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Galatasaray": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.3698
+    },
+    "Will Hoffenheim": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.16820000000000002
+    },
+    "Will IF": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.003200000000000003
+    },
+    "Will Ipswich": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.1152
+    },
+    "Will Lazio": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.8977999999999999
+    },
+    "Will Leicester": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.05780000000000002
+    },
+    "Will Liverpool": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.9248000000000001
+    },
+    "Will Ludogorets": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.009799999999999993
+    },
+    "Will Manchester": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.44179999999999997
+    },
+    "Will Midtjylland": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0242
+    },
+    "Will Newcastle": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will Nice": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.033800000000000004
+    },
+    "Will Nottingham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.007200000000000007
+    },
+    "Will PAOK": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.007200000000000007
+    },
+    "Will Porto": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.7688
+    },
+    "Will Real": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.08819999999999997
+    },
+    "Will Slavia": {
+      "count": 1,
+      "accuracy": 0,
+      "meanBrier": 0.9521999999999998
+    },
+    "Will Southampton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0002000000000000002
+    },
+    "Will Tottenham": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.40499999999999997
+    },
+    "Will Twente": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0
+    },
+    "Will West": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.0018000000000000017
+    },
+    "Will Wolverhampton": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.012799999999999994
+    },
+    "Will the": {
+      "count": 1,
+      "accuracy": 1,
+      "meanBrier": 0.039200000000000006
+    }
+  },
+  "resultsPath": "F:\\Workspace\\JevPlayground\\data\\jev-batch-2026-09-19T00-04-21-338Z.jsonl"
+}

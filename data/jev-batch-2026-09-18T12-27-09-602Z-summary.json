@@ -1,0 +1,17 @@
+{
+  "runId": "2026-09-18T12-27-09-602Z",
+  "targetCount": 100,
+  "selectedCount": 100,
+  "successfulCount": 0,
+  "errorCount": 100,
+  "concurrency": 5,
+  "sportsTagId": "100639",
+  "minVolume": 50,
+  "accuracy": null,
+  "meanBrier": 0,
+  "uniformBaselineBrier": 0.5,
+  "meanProbabilityOfActual": 0,
+  "highConfidenceWrong": 0,
+  "byFamily": {},
+  "resultsPath": "F:\\Workspace\\JevPlayground\\data\\jev-batch-2026-09-18T12-27-09-602Z.jsonl"
+}
